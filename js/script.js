@@ -271,19 +271,23 @@ const data = {
 
 
 
-
-
 let autoCompleteInput = document.getElementById('autoComplete');
 let results = document.getElementById('results');
 let output = ''
 autoCompleteInput.addEventListener('input',openAutoComplete);
 autoCompleteInput.addEventListener('focus', openAutoComplete);
+autoCompleteInput.addEventListener('click',loadAllData);
 
 document.addEventListener('click',(e)=>{
     if(!results.contains(e.target) && e.target !== autoCompleteInput){
     results.style.display = 'none'
     }
 })
+
+function loadAllData(){
+        results.style.display = "block"
+        loadData(data.countries)
+}
 
 
 function openAutoComplete(e){
